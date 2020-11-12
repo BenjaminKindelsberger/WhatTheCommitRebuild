@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require('cors');
 const app = express();
 
+const controller = require("./controllers/commit_controller")
 const commit = require("./models/commit");
 const dbURL = "mongodb://127.0.0.1:27017/Commits";
 
@@ -20,6 +21,7 @@ app.get("/showall", async (req, res) => {
     })
 })
 
+
 app.get("/random",cors(), async (req, res) => {
     commit.countDocuments().exec(function (err, count) {
         var random = Math.floor(Math.random() * count)
@@ -30,3 +32,7 @@ app.get("/random",cors(), async (req, res) => {
             })
     })
 })
+
+app.put("/addvote/:id", cors(), controller.update);
+
+
