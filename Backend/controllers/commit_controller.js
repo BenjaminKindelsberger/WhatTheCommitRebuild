@@ -22,10 +22,18 @@ exports.findRandom = async function(req,res){
 
 exports.updateVotes = async function(req, res){
 
+<<<<<<< HEAD
     commit.findOne({ _id: req.params.id }).then((result) => {
         result.votes++
         result.save()
         res.send(result)
     })
+=======
+    const doc = await commit.findOne({_id: req.params.id})
+    console.log(doc.votes)
+    doc.votes++;
+    await doc.save()
+    res.send(null)
+>>>>>>> 7fb0a510006dbb03468a59937a9eb7861bf11feb
     
 }
