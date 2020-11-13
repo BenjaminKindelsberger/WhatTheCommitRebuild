@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    {{ commits._id }}
     <br />
-    {{ commits.commentText }}
+    {{ commits.message }}
     <br />
-    {{ commits.votes }}
+    <br />
+    {{ commits.votes }} : Current Votes
+    <br />
     <br />
     <button v-on:click="handleClick">Vote</button>
   </div>
 </template>
 
 <script>
+
 import axios from "axios";
+
 export default {
   name: "App",
   components: {},
@@ -46,5 +49,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+button{
+  color:#ffffff;
+  background-color:#228B22;
+  border-radius: 8px;
+}
+br{
+  padding:52;
 }
 </style>
